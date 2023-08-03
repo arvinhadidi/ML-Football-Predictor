@@ -43,10 +43,6 @@ def category_sizes(filename):
     return num_rows
 
 def load_data(filename):
-    """
-    Load shopping data from a CSV file `filename` and convert into a list of
-    evidence lists and a list of labels. Return a tuple (evidence, labels).
-    """
 
     evidence = []
     labels = []
@@ -76,10 +72,7 @@ def load_data(filename):
 
 
 def train_model(evidence, labels):
-    """
-    Given a list of evidence lists and a list of labels, return a
-    fitted k-nearest neighbor model (k=1) trained on the data.
-    """
+    
     nearest = int(input("number of nearest neighbours? "))
     neigh = KNeighborsClassifier(n_neighbors = nearest)
     neigh.fit(evidence, labels)
@@ -111,6 +104,7 @@ def evaluate(labels, predictions):
             false_positives += 1
 
     return true_positives, false_positives
+    
     raise NotImplementedError
 
 
